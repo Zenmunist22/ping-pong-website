@@ -1,0 +1,17 @@
+.nav-link:hover {
+    color: gold;
+}
+
+.nav-link {
+    border-radius: 1rem;
+    padding: .5rem .2rem;
+    text-decoration: none;
+    font-size: 1.2rem;
+    color: goldenrod;
+    transition: .3s;
+    border: 1px solid transparent;
+}
+
+.navbar_container {
+    background: #003300;
+}

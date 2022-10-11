@@ -1,6 +1,8 @@
 // We import NavLink to utilize the react router.
 import { NavLink } from "react-router-dom";
- 
+import "../navbar/navbar.css"
+
+
 // Here, we display our Navbar
 
 
@@ -14,10 +16,11 @@ import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 
 export default function Navbar() {
+
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar className="navbar_container ">
           <IconButton
             size="large"
             edge="start"
@@ -29,8 +32,9 @@ export default function Navbar() {
           </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
 
-            <NavLink className="nav-link" to="/create">
-            Create Record
+            <NavLink
+              className="nav-link" to="/create">
+              Create Record
             </NavLink>
 
 
@@ -40,7 +44,7 @@ export default function Navbar() {
 
 
             <NavLink className="nav-link" to="/">
-            Record List
+              Record List
             </NavLink>
 
 
@@ -49,6 +53,6 @@ export default function Navbar() {
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-    </Box>
+    </Box >
   );
 }
