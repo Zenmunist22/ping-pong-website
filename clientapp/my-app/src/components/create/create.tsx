@@ -6,12 +6,13 @@ export default function Create() {
   const [form, setForm] = useState({
     name: "",
     ucfId: "",
-
+    knightsEmail: "",
+    rating: "",
   });
   const navigate = useNavigate();
 
   // These methods will update the state properties.
-  function updateForm(value: { name?: string; ucfId?: string; }) {
+  function updateForm(value: { name?: string; ucfId?: string; knightsEmail? : string; rating? : string}) {
     return setForm((prev) => {
       return { ...prev, ...value };
     });
@@ -36,8 +37,8 @@ export default function Create() {
         return;
       });
 
-    setForm({ name: "", ucfId: "" });
-    navigate("/");
+    setForm({ name: "", ucfId: "", knightsEmail: "", rating: "" });
+    navigate("/create?success=hello");
   }
 
   // This following section will display the form that takes the input from the user.
@@ -65,6 +66,28 @@ export default function Create() {
             value={form.ucfId}
             required
             onChange={(e) => updateForm({ ucfId: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="position">Knights Email</label>
+          <input
+            type="text"
+            className="form-control"
+            id="position"
+            value={form.knightsEmail}
+            required
+            onChange={(e) => updateForm({ knightsEmail: e.target.value })}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="position">Rating</label>
+          <input
+            type="text"
+            className="form-control"
+            id="position"
+            value={form.rating}
+            required
+            onChange={(e) => updateForm({ rating: e.target.value })}
           />
         </div>
         <div className="form-group">

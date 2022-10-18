@@ -35,6 +35,16 @@ recordRoutes.route("/record/:id").get(function (req, res) {
      res.json(result);
    });
 });
+recordRoutes.route("/checkin/:ucfId").get(function (req, res) {
+  let db_connect = dbo.getDb();
+  let myquery = { ucfId: req.params.ucfId.toString() };
+  db_connect
+    .collection("records")
+    .findOne(myquery, function (err, result) {
+      if (err) throw err;
+      res.json(result);
+  });
+});
  
 // This section will help you create a new record.
 recordRoutes.route("/record/add").post(function (req, response) {
@@ -42,6 +52,8 @@ recordRoutes.route("/record/add").post(function (req, response) {
  let myobj = {
    name: req.body.name,
    ucfId: req.body.ucfId,
+   knightsEmail: req.body.knightsEmail,
+   rating: req.body.rating
  };
  db_connect.collection("records").insertOne(myobj, function (err, res) {
    if (err) throw err;
@@ -57,6 +69,8 @@ recordRoutes.route("/update/:id").post(function (req, response) {
    $set: {
      name: req.body.name,
      ucfId: req.body.ucfId,
+     knightsEmail: req.body.knightsEmail,
+     rating: req.body.rating
    },
  };
  db_connect

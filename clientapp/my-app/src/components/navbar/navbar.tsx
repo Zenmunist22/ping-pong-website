@@ -21,34 +21,22 @@ export default function Navbar() {
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="static">
         <Toolbar className="navbar_container ">
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
+        <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
+            <NavLink
+              className="nav-link" to="/">
+              Dashboard
+            </NavLink>
+          </Typography>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 0 }}>
             <NavLink
               className="nav-link" to="/create">
               Create Record
             </NavLink>
-
-
-
           </Typography>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-
-
-            <NavLink className="nav-link" to="/">
+            <NavLink className="nav-link" to="/records">
               Record List
             </NavLink>
-
-
-
           </Typography>
           <Button color="inherit">Login</Button>
         </Toolbar>
